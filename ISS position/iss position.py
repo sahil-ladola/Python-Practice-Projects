@@ -5,6 +5,8 @@ import smtplib
 
 LAT = 21.170240
 LNG = 72.831062
+my_email = os.environ["MY_GMAIL"]
+password = os.environ["PASSWORD"]
 
 
 def iss_overhead():
@@ -44,7 +46,7 @@ while True:
     if iss_overhead() and is_night():
         with smtplib.SMTP("smtp.gmail.com",587) as connection:
             connection.starttls()
-            connection.login("20bmiit019@gmail.com", "lfvhtfputojkurlx")
-            connection.sendmail(from_addr="20bmiit019@gmail.com",
-                                to_addrs="sahilladola18@gmail.com",
+            connection.login(my_email, password)
+            connection.sendmail(from_addr=my_email,
+                                to_addrs="sahil@gmail.com",
                                 msg="Subject:ISS IS OVERHEAD\n\nLOOK UP 👆🏻")
