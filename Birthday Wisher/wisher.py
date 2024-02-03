@@ -2,8 +2,9 @@
 
 # import smtplib
 #
-# my_email = "20bmiit019@gmail.com"
-# password = "lfvhtfputojkurlx"
+# my_email = os.environ["MY_GMAIL"]
+# password = os.environ["PASSWORD"]
+# to_email = os.environ["TO_GMAIL"]
 #
 # # 587 port added because of TimeOutError
 # with smtplib.SMTP("smtp.gmail.com", 587) as connection:
@@ -12,7 +13,7 @@
 #     connection.login(user=my_email, password=password)
 #     connection.sendmail(
 #         from_addr=my_email,
-#         to_addrs="sahilladola18@gmail.com",
+#         to_addrs=to_email,
 #         msg="Subject:test\n\nHello"
 #     )
 
@@ -25,7 +26,7 @@
 # month = now.month
 # day_of_week = now.weekday()
 # # make object of any date
-# dob = dt.datetime(year=2003, month=7, day=18)
+# dob = dt.datetime(year=2003, month=1, day=1)
 # print(dob)
 
 # motivation quotes
@@ -40,14 +41,15 @@ with open("quotes.txt", "r") as file:
     data = file.readlines()
     quote = random.choice(data)
 
-my_email = "20bmiit019@gmail.com"
-password = "lfvhtfputojkurlx"
+my_email = os.environ["MY_GMAIL"]
+password = os.environ["PASSWORD"]
+to_email = os.environ["TO_GMAIL"]
 
 with smtplib.SMTP("smtp.gmail.com", 587) as connection:
     connection.starttls()
     connection.login(my_email, password)
     connection.sendmail(from_addr=my_email,
-                        to_addrs="sahilladola18@gmail.com",
+                        to_addrs=to_email,
                         msg=f"Subject:Motivation quote\n\n{quote}"
                         )
 
@@ -56,9 +58,9 @@ with smtplib.SMTP("smtp.gmail.com", 587) as connection:
 # import random
 # import smtplib
 # import pandas as pd
-# MY_EMAIL = "20bmiit019@gmail.com"
-# PASSWORD = "lfvhtfputojkurlx"
-#
+# my_email = os.environ["MY_GMAIL"]
+# password = os.environ["PASSWORD"]
+# 
 # now = dt.datetime.now()
 # current_day = now.day
 # current_month = now.month
