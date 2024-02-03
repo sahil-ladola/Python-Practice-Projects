@@ -1,7 +1,7 @@
 import requests
 
 END_POINT = "https://api.openweathermap.org/data/2.5/forecast"
-api_key = "54299aa5ef44f42356a64564ceda8d55"
+api_key = os.environ["API_KEY"]
 
 weather_params = {
     "lat": 21.170240,
